@@ -1,9 +1,12 @@
 const { Router } = require('express');
-const { store, index } = require('../app/controllers/UserController');
+const UserController = require('../app/controllers/UserController');
 const Call = require('../app/utils/Call');
+const auth = require('../app/middlewares/auth');
 
 const routes = Router();
-routes.post('/', Call(store));
-routes.get('/', Call(index))
+routes.post('/', Call(UserController.store));
+routes.get('/rols', Call(UserController.rols))
+routes.get('/routes', [auth], Call(UserController.routes));
+routes.get('/', Call(UserController.index));
 
 module.exports = routes;

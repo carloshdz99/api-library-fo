@@ -9,28 +9,16 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('lb.users', {
+    await queryInterface.createTable('lb.genres', {
       id: {
         type: psql.Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      firstname: {
+      name: {
         type: psql.Sequelize.STRING,
         allowNull: false,
-      },
-      lastname: {
-        type: psql.Sequelize.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: psql.Sequelize.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: psql.Sequelize.STRING,
-        allowNull: false,
-      },
+      }
     });
   },
 
@@ -41,6 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('lb.usuarios');
+    await queryInterface.dropTable('lb.genres');
   }
 };

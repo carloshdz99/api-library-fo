@@ -1,27 +1,19 @@
 const psql = require('sequelize');
 const db = require('../app/nucleo/DB');
 
-// const { Rols, Binnacle } = require('./indexModels');
+//const { Rols } = require('./indexModels');
 
-const UsersSchema = {
+const RoutesSchema = {
     id: {
         type: psql.Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    firstname: {
+    name: {
         type: psql.Sequelize.STRING,
         allowNull: false,
     },
-    lastname: {
-        type: psql.Sequelize.STRING,
-        allowNull: false,
-    },
-    email: {
-        type: psql.Sequelize.STRING,
-        allowNull: false,
-    },
-    password: {
+    route: {
         type: psql.Sequelize.STRING,
         allowNull: false,
     },
@@ -29,25 +21,21 @@ const UsersSchema = {
         type: psql.Sequelize.INTEGER,
         allowNull: false,
     }
-};
+}
 
-class User extends psql.Model {
+class Routes extends psql.Model {
     // static associate() {
     //     this.belongsTo(Rols, {
     //         foreignKey: 'id_rol',
     //         as: 'rol',
     //     });
-    //     this.hasMany(Binnacle, {
-    //         foreignKey: 'id_user',
-    //         as: 'binnacles',
-    //     });
     // }
 }
 
-User.init(UsersSchema, {
+Routes.init(RoutesSchema, {
     timestamps: false,
-    tableName: 'lb.users',
     sequelize: db.connection(),
-})
+    tableName: 'lb.routes',
+});
 
-module.exports = User;
+module.exports = Routes;

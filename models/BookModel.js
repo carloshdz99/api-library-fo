@@ -1,53 +1,53 @@
 const psql = require('sequelize');
 const db = require('../app/nucleo/DB');
 
-// const { Rols, Binnacle } = require('./indexModels');
+// const { Binnacle, Genre } = require('./indexModels');
 
-const UsersSchema = {
+const BookSchema = {
     id: {
         type: psql.Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    firstname: {
+    title: {
         type: psql.Sequelize.STRING,
         allowNull: false,
     },
-    lastname: {
+    author: {
         type: psql.Sequelize.STRING,
         allowNull: false,
     },
-    email: {
+    publish_year: {
+        type: psql.Sequelize.DATE,
+        allowNull: false,
+    },
+    genre: {
         type: psql.Sequelize.STRING,
         allowNull: false,
     },
-    password: {
-        type: psql.Sequelize.STRING,
-        allowNull: false,
-    },
-    id_rol: {
+    stock: {
         type: psql.Sequelize.INTEGER,
-        allowNull: false,
-    }
+        allowNull: 0,
+    },
 };
 
-class User extends psql.Model {
+class Book extends psql.Model {
     // static associate() {
-    //     this.belongsTo(Rols, {
-    //         foreignKey: 'id_rol',
-    //         as: 'rol',
-    //     });
     //     this.hasMany(Binnacle, {
-    //         foreignKey: 'id_user',
-    //         as: 'binnacles',
+    //         foreignKey: 'id_book',
+    //         as: 'books',
+    //     });
+    //     this.belongsTo(Genre, {
+    //         foreignKey: 'genre',
+    //         as: 'genre',
     //     });
     // }
 }
 
-User.init(UsersSchema, {
+Book.init(BookSchema, {
     timestamps: false,
-    tableName: 'lb.users',
     sequelize: db.connection(),
-})
+    tableName: 'lb.books',
+});
 
-module.exports = User;
+module.exports = Book;

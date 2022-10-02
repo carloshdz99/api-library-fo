@@ -28,8 +28,12 @@ module.exports = {
         allowNull: false,
       },
       genre: {
-        type: psql.Sequelize.STRING,
+        type: psql.Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'lb.genres',
+          key: 'id',
+        },
       },
       stock: {
         type: psql.Sequelize.INTEGER,
