@@ -1,1 +1,1 @@
-worker: node app.js
+worker: voila --port=$PORT --no-browser node app.js
