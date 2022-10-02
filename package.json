@@ -27,7 +27,8 @@
     "moment-timezone": "^0.5.37",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.23.2"
+    "sequelize": "^6.23.2",
+    "nodemon": "^2.0.20"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
