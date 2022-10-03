@@ -14,7 +14,7 @@ class Server {
     constructor() {
         this.app = express();
         this.server = createServer(this.app);
-        this.port = process.env.PORT || 5000;
+        this.port = process.env.PORT || 3000;
         this.host = process.env.HOST || 'localhost';
         this.middlewares();
     }
@@ -28,7 +28,7 @@ class Server {
 
     start() {
         this.server.listen(this.port, this.host, () => {
-            console.log(`http://0.0.0.0:${this.port}`);
+            console.log(`http://localhost:${this.port}`);
         })
     }
 }
