@@ -33,5 +33,9 @@
   "devDependencies": {
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.1"
-  }
+  },
+  "engines": {
+    "node": ">=14.0.O",
+    "npm": ">=7.7.0"
+ }
 }
