@@ -7,7 +7,7 @@ const genreRoutes = require('./genre');
 
 const routes = Router();
 routes.get('/', () => {
-    console.log("entro jajaajja");
+    res.status(200).send('Hola');
 })
 
 //users
