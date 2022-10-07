@@ -11,6 +11,12 @@ class DB {
             port: 5432,
             dialect: 'postgres',
             logging: false,
+            dialectOptions: {
+                ssl: {
+                    require: true, // This will help you. But you will see nwe error
+                    rejectUnauthorized: false // This line will fix new error
+                },
+            },
         });
     }
 
